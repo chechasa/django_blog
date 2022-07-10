@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css_files %}
+<link rel="stylesheet" href={% static "blog/index.css" %}>
+<link rel="stylesheet" href={% static "blog/post.css" %}>
+{% endblock  %}
+
+{% block title %}
+Home Page
+{% endblock title %}
+
+{% block content %}
+
+  <section id='welcome'>
+    <header>
+      <img src={% static 'blog/images/random_person.jpg' %} alt='Maickel - Author of this blog'>
+      <h2>MAICKEL'S BLOG</h2>
+    </header>
+    <p>Hi, I am Maickel, this blog is about Tech and cryptocurrency
+  </section>
+
+
+  <section id="latest-posts">
+    <h2>My latest thoughts</h2>
+      <ul>
+        {% for post in posts %}
+          {% include "blog/includes/post.html" %}
+        {% endfor %}
+      </ul>
+  </section>
+
+
+  <section id="about">
+    <h2>What I Do</h2>
+    <p>I love programming</p>
+    <p>My goal is to keep growing as a developer, and if I could do the same to you I'd be happy</p>
+  </section>
+{% endblock content %}
